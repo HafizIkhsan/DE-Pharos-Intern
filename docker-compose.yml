@@ -10,3 +10,16 @@ services:
       POSTGRES_DB: ${DB_NAME}
     ports:
       - "5435:5432"
+    volumes:
+      - ./sql/table_migration.sql:/docker-entrypoint-initdb.d/table_migration.sql
+
+  etl:
+    build: .
+    container_name: etl_container
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+
+volumes:
+  postgres_data:

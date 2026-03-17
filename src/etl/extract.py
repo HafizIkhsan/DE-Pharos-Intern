@@ -1,7 +1,8 @@
 import pandas as pd
+import os
 
 def extract_data():
-    url = "https://docs.google.com/spreadsheets/d/1WE17277HEMHrfa7IU6TlVhbzVrFqWNBZQ4qDfAvImUI/export?format=csv"
+    url = os.getenv("dataset_url")
     try:
         df = pd.read_csv(url)
 

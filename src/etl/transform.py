@@ -1,5 +1,6 @@
 import pandas as pd
 
+# Function untuk mapping missing value menggunakan untuk data yang terlihat seperti key-value
 def mapping(df, key, value):
     missing_value = df[key].isna().sum()
     print(f"{missing_value} missing value pada kolom '{key}'")
@@ -23,7 +24,7 @@ def mapping(df, key, value):
     print(f"{after_mapping_missing_value} missing value pada kolom '{key}' setelah mapping")
 
     if after_mapping_missing_value > 0:
-        print(f"[WARNING] {after_mapping_missing_value} data gagal di-map pada {key}")
+        print(f"{after_mapping_missing_value} data gagal di-map pada {key}")
 
     return df
 
@@ -54,11 +55,16 @@ def transform_data(df):
     """ Karena sudah tidak ada pasangan key-value lagi di database jadi kita lanjut mengurus missing value untuk data yang tidak memiliki pasangan key-value """
     # Menghapus baris yang memiliki missing value pada kolom 'outlet_code', 'product_code', dan 'product_name'
     print(df.shape[0], "data sebelum menghapus missing value pada kolom 'outlet_code', 'product_code', dan 'product_name'")
+    
     df = df.dropna(subset=["product_code","product_name", "outlet_code" , "outlet_name"])
+    
     print(df.shape[0], "data setelah menghapus missing value pada kolom 'outlet_code', 'product_code', dan 'product_name'")
+   
     # Asumsi saya jika qty nya kosong dan actual_sales nya 0 maka data transaksi tersebut tidak valid dan tidak perlu dimasukkan ke dalam database, maka saya akan menghapus data tersebut
     print(df.shape[0], "data sebelum menghapus data yang memiliki missing value pada kolom 'qty' dan 'actual_sales' bernilai 0")
+    
     df = df.drop(df[(df["qty"].isna()) & (df["actual_sales"] == 0)].index)
+    
     print(df.shape[0], "data setelah menghapus data yang memiliki missing value pada kolom 'qty' dan 'actual_sales' bernilai 0")
 
     ## Handling Data Type
