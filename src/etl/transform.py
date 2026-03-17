@@ -87,6 +87,10 @@ def transform_data(df):
     df = df.dropna(subset=["qty"])
     df["qty"] = df["qty"].astype("int64")
 
+    # Handling Data Duplicates
+    # Hapus data duplikat pada kolom 'outlet_code', 'product_code
+    df = df.drop_duplicates(subset=["outlet_code", "product_code"])
+
     # Validasi Data
     df = df[df["qty"] * df["product_price"] == df["actual_sales"]]
     df = df[df["qty"] >= 0]
