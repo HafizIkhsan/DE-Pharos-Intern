@@ -1,9 +1,6 @@
 import pandas as pd
-from extract import extract_data
 
-def transform_data():
-    df = extract_data()
-
+def transform_data(df):
     # logging jumlah data sebelum transformasi
     print("Jumlah data sebelum transformasi:", df.shape[0])
 
@@ -58,6 +55,3 @@ def transform_data():
     print("Jumlah data setelah transformasi:", df.shape[0])
 
     return df
-
-if __name__ == "__main__":
-    transform_data()
