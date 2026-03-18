@@ -15,7 +15,7 @@
 
 - Normalisasi data yang merupakan key value ke dalam tabel sendiri, yaitu data outlet(outlet_code, outlet_name) dan product(product_code, product_name)
 - Tabel outlets_products menggunakan composite keys pada outlet_code dan product_code karena asumsi saya setelah melihat data adalah setiap outlet memiliki harga yang berbeda untuk tiap product walaupun itu product yang sama
-- Tabel sales juga menggunakan composite keys pada sales_period, outlet_code, product_code karena asumsi saya setelah melihat data adalah setiap baris merepresentasikan penjualan 1 product di 1 outlet oleh karena itu saya buat 3 kolom tersebut menjadi composite keys.
+- Tabel sales juga menggunakan composite keys pada sales_period, outlet_code, product_code karena asumsi saya setelah melihat data adalah setiap baris merepresentasikan 1 hari penjualan 1 product di 1 outlet oleh karena itu saya buat 3 kolom tersebut menjadi composite keys.
   <br>
   <br>
 
