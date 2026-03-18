@@ -35,19 +35,19 @@
 1. Clone repository dan masuk ke direktori project
 
    ```bash
-   git clone <repository-url>
-   cd submission
+   git clone https://github.com/HafizIkhsan/DE-Pharos-Intern
+   cd DE-Pharos-Intern
    ```
 
 2. Buat file .env di root project
 
    ```bash
-   DB_HOST=postgres
-   DB_PORT=5432
-   DB_NAME=your_database_name
-   DB_USER=your_username
-   DB_PASSWORD=your_password
-   dataset_url=https://docs.google.com/spreadsheets/d/1WE17277HEMHrfa7IU6TlVhbzVrFqWNBZQ4qDfAvImUI/export?format=csv
+   DB_HOST="postgres"
+   DB_PORT="5432"
+   DB_NAME="your_database_name"
+   DB_USER="your_username"
+   DB_PASSWORD="your_password"
+   dataset_url="https://docs.google.com/spreadsheets/d/1WE17277HEMHrfa7IU6TlVhbzVrFqWNBZQ4qDfAvImUI/export?format=csv"
    ```
 
    \*_Catatan: Nilai DB_HOST harus postgres (nama service di docker-compose) saat menggunakan Docker._ <br> <br>
@@ -71,12 +71,12 @@
 2. Buat file .env
 
    ```bash
-   DB_HOST=localhost
-   DB_PORT=5432
-   DB_NAME=your_database_name
-   DB_USER=your_username
-   DB_PASSWORD=your_password
-   dataset_url=https://docs.google.com/spreadsheets/d/1WE17277HEMHrfa7IU6TlVhbzVrFqWNBZQ4qDfAvImUI/export?format=csv
+   DB_HOST="localhost"
+   DB_PORT="5432"
+   DB_NAME="your_database_name"
+   DB_USER="your_username"
+   DB_PASSWORD="your_password"
+   dataset_url="https://docs.google.com/spreadsheets/d/1WE17277HEMHrfa7IU6TlVhbzVrFqWNBZQ4qDfAvImUI/export?format=csv"
    ```
 
 3. Pastikan PostgreSQL sudah berjalan, lalu jalankan migration tabel secara manual:
