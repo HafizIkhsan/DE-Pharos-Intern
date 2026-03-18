@@ -15,7 +15,7 @@
 
 - Normalisasi data yang merupakan key value ke dalam tabel sendiri, yaitu data outlet(outlet_code, outlet_name) dan product(product_code, product_name)
 - Tabel outlets_products menggunakan composite keys pada outlet_code dan product_code karena asumsi saya setelah melihat data adalah setiap outlet memiliki harga yang berbeda untuk tiap product walaupun itu product yang sama
-- Tabel sales juga menggunakan composite keys pada sales_period, outlet_code, product_code karena asumsi saya setelah melihat data adalah setiap baris merepresentasikan penjualan 1 product di 1 outlet oleh karena itu saya buat 3 kolom tersebut menjadi composite keys.
+- Tabel sales juga menggunakan composite keys pada sales_period, outlet_code, product_code karena asumsi saya setelah melihat data adalah setiap baris merepresentasikan 1 hari penjualan 1 product di 1 outlet oleh karena itu saya buat 3 kolom tersebut menjadi composite keys.
   <br>
   <br>
 
@@ -35,19 +35,19 @@
 1. Clone repository dan masuk ke direktori project
 
    ```bash
-   git clone <repository-url>
-   cd submission
+   git clone https://github.com/HafizIkhsan/DE-Pharos-Intern
+   cd DE-Pharos-Intern
    ```
 
 2. Buat file .env di root project
 
    ```bash
-   DB_HOST=postgres
-   DB_PORT=5432
-   DB_NAME=your_database_name
-   DB_USER=your_username
-   DB_PASSWORD=your_password
-   dataset_url=https://docs.google.com/spreadsheets/d/1WE17277HEMHrfa7IU6TlVhbzVrFqWNBZQ4qDfAvImUI/export?format=csv
+   DB_HOST="postgres"
+   DB_PORT="5432"
+   DB_NAME="your_database_name"
+   DB_USER="your_username"
+   DB_PASSWORD="your_password"
+   dataset_url="https://docs.google.com/spreadsheets/d/1WE17277HEMHrfa7IU6TlVhbzVrFqWNBZQ4qDfAvImUI/export?format=csv"
    ```
 
    \*_Catatan: Nilai DB_HOST harus postgres (nama service di docker-compose) saat menggunakan Docker._ <br> <br>
@@ -71,12 +71,12 @@
 2. Buat file .env
 
    ```bash
-   DB_HOST=localhost
-   DB_PORT=5432
-   DB_NAME=your_database_name
-   DB_USER=your_username
-   DB_PASSWORD=your_password
-   dataset_url=https://docs.google.com/spreadsheets/d/1WE17277HEMHrfa7IU6TlVhbzVrFqWNBZQ4qDfAvImUI/export?format=csv
+   DB_HOST="localhost"
+   DB_PORT="5432"
+   DB_NAME="your_database_name"
+   DB_USER="your_username"
+   DB_PASSWORD="your_password"
+   dataset_url="https://docs.google.com/spreadsheets/d/1WE17277HEMHrfa7IU6TlVhbzVrFqWNBZQ4qDfAvImUI/export?format=csv"
    ```
 
 3. Pastikan PostgreSQL sudah berjalan, lalu jalankan migration tabel secara manual:
@@ -107,7 +107,7 @@
 
 ### Validasi Data
 
-- df = df[df["qty"] \_ df["product_price"] == df["actual_sales"]] // asumsi saya actual_sales itu hasil dari qty \* product_price
+- df = df[df["qty"] \* df["product_price"] == df["actual_sales"]] // asumsi saya actual_sales itu hasil dari qty \* product_price
 - df = df[df["qty"] >= 0] // asumsi saya kuantitas tidak boleh negatif
 - df = df[df["product_price"] >= 0] // asumsi saya harga produk tidak boleh negatif
 - df = df[df["actual_sales"] >= 0] // asumsi saya nilai penjualan tidak boleh negatif
