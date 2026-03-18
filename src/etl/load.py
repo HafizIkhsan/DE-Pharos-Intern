@@ -3,7 +3,7 @@ from config import connection_db
 
 # Function untuk insert data ke database
 def insert_data(cursor, df, table_name, columns, conflict_columns):
-    data = df[columns].drop_duplicates()
+    data = df[columns]
 
     data_table = [
         tuple(row[col] for col in columns)
