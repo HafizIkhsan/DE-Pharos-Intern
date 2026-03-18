@@ -111,3 +111,9 @@
 - df = df[df["qty"] >= 0] // asumsi saya kuantitas tidak boleh negatif
 - df = df[df["product_price"] >= 0] // asumsi saya harga produk tidak boleh negatif
 - df = df[df["actual_sales"] >= 0] // asumsi saya nilai penjualan tidak boleh negatif
+
+---
+
+# Bonus / Optional Requirements
+
+Link spreadsheets: [link](https://docs.google.com/spreadsheets/d/1oM43Tl3LEqP2-zrHNDTQvr9kkGsS1lxkCOKZUyb-ijg/edit?usp=sharing)
