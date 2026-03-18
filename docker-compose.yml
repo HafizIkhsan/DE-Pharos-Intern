@@ -11,6 +11,7 @@ services:
     ports:
       - "5435:5432"
     volumes:
+      - postgres_data:/var/lib/postgresql/data
       - ./sql/table_migration.sql:/docker-entrypoint-initdb.d/table_migration.sql
 
   etl:
