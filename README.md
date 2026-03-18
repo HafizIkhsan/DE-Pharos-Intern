@@ -107,7 +107,7 @@
 
 ### Validasi Data
 
-- df = df[df["qty"] \_ df["product_price"] == df["actual_sales"]] // asumsi saya actual_sales itu hasil dari qty \* product_price
+- df = df[df["qty"] \* df["product_price"] == df["actual_sales"]] // asumsi saya actual_sales itu hasil dari qty \* product_price
 - df = df[df["qty"] >= 0] // asumsi saya kuantitas tidak boleh negatif
 - df = df[df["product_price"] >= 0] // asumsi saya harga produk tidak boleh negatif
 - df = df[df["actual_sales"] >= 0] // asumsi saya nilai penjualan tidak boleh negatif
