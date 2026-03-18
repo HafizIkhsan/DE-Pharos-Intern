@@ -72,7 +72,7 @@
 
    ```bash
    DB_HOST="localhost"
-   DB_PORT="5432"
+   DB_PORT="5435"
    DB_NAME="your_database_name"
    DB_USER="your_username"
    DB_PASSWORD="your_password"
